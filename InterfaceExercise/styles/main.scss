@@ -1,0 +1,159 @@
+﻿$action-btn-bg: #5f5f5f;
+$action-btn-color: #e98824;
+$action-btn-hover: #f26e3c;
+$expand-btn-color1: #e98824;
+$expand-btn-color2: #d13393;
+html, body {
+    width: 100%;
+    margin: 0 0 0 0;
+    text-align: center;
+    position: relative;
+    font-family: Arial, sans-serif;
+}
+
+
+body * {
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+.exercise-wrapper {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+
+    &:after {
+        content: "";
+        clear: both;
+        display: block;
+    }
+    .grid-data {
+        width: calc(100% - 150px);
+        height: 400px;
+        overflow-y: auto;
+        -moz-transition: 0.3s ease-in-out;
+        -o-transition: 0.3s ease-in-out;
+        -webkit-transition: 0.3s ease-in-out;
+        transition: 0.3s ease-in-out;
+    }
+    table {
+        width: 100%;
+        float: left;
+        -moz-transition: 0.3s ease-in-out;
+        -o-transition: 0.3s ease-in-out;
+        -webkit-transition: 0.3s ease-in-out;
+        transition: 0.3s ease-in-out;
+        border-collapse: collapse;
+        tr {
+            border-bottom: 1px solid #ddd;
+            border-collapse: collapse;
+            &:nth-child(even){
+                background-color: #f1f1f1;
+            }
+            &:first-child {
+                border-bottom: 2px solid #000;
+            }
+        }
+
+        td, th {
+            padding: 10px 10px;
+            text-align: center;
+            border-collapse: collapse;
+        }
+    }
+
+    .action-buttons {
+        width: 150px;
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        background: $action-btn-bg;
+        right: 0;
+        -moz-transition: 0.3s ease-in-out;
+        -o-transition: 0.3s ease-in-out;
+        -webkit-transition: 0.3s ease-in-out;
+        transition: 0.3s ease-in-out;
+        font-weight: bold;
+        .core-btns{
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 150px;
+            bottom: 20%;
+        }
+
+        .expanded-btns {
+            position: absolute;
+            top: 0;
+            left: 150px;
+            width: 300px;
+            bottom: 20%;
+        }
+        .action-btn {
+            -moz-transition: 0.3s ease-in-out;
+            -o-transition: 0.3s ease-in-out;
+            -webkit-transition: 0.3s ease-in-out;
+            transition: 0.3s ease-in-out;
+            height: 25%;
+            background: $action-btn-color;
+            color: #fff;
+            display: inline-block;
+            float: left;
+            width: 150px;
+            border: 2px solid $action-btn-bg;
+            border-radius: 10px;
+            padding-top: 27px;
+            cursor: pointer;
+            &:hover {
+                background: $action-btn-hover;
+            }
+        }
+
+        .expand-btn {
+            -moz-transition: 0.3s ease-in-out;
+            -o-transition: 0.3s ease-in-out;
+            -webkit-transition: 0.3s ease-in-out;
+            transition: 0.3s ease-in-out;
+            position: absolute;
+            width: 100%;
+            border-radius: 10px;
+            background: $expand-btn-color1;
+            bottom: 0;
+            right: 0;
+            left: 0;
+            height: 20%;
+            color: #fff;
+            cursor: pointer;
+            padding-top: 27px;
+
+            &:hover {
+                background: $action-btn-hover;
+            }
+
+            .less {
+                display: none;
+            }
+        }
+    }
+
+    &.open {
+        .grid-data {
+            width: calc(100% - 450px);
+        }
+
+        .action-buttons {
+            width: 450px;
+
+            .expand-btn {
+                background: $expand-btn-color2;
+                .less {
+                    display: inline;
+                }
+                .more {
+                    display: none;
+                }
+            }
+        }
+    }
+}
